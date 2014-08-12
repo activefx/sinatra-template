@@ -4,14 +4,18 @@ Simple Sinatra template for building Ruby microservices. Bundler, Foreman, Thin,
 
 # Setup 
 
+````
 git clone git://github.com/activefx/sinatra-template.git <new_application_name>
 bundle
 bundle exec foreman start 
+````
 
 # Heroku Deployment
 
+````
 heroku apps:create <new_application_name>
 git push heroku master
+````
 
 # License 
 
