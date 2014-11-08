@@ -1,6 +1,12 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (4.1.7)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
     backports (3.6.3)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -26,6 +32,7 @@ GEM
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
     hitimes (1.2.2)
+    i18n (0.6.11)
     json (1.8.1)
     listen (2.7.11)
       celluloid (>= 0.15.2)
@@ -33,6 +40,7 @@ GEM
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
     method_source (0.8.2)
+    minitest (5.4.2)
     multi_json (1.10.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -78,14 +86,18 @@ GEM
       eventmachine (~> 1.0)
       rack (~> 1.0)
     thor (0.19.1)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (~> 4, < 5)
   foreman
   guard-rspec
   json

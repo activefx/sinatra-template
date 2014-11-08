@@ -6,6 +6,7 @@ ruby '2.1.3'
 gem "sinatra"
 gem "thin"
 gem "json"
+gem "activesupport", "~> 4", "< 5"
 
 group :development do
   gem "foreman"

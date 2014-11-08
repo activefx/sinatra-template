@@ -6,5 +6,6 @@ Bundler.require(:default, ENV["RACK_ENV"].to_sym)
 
 require 'time'
 require 'uri'
+require 'activesupport/all'
 
 Dir["./lib/**/*.rb"].each { |f| require f }
