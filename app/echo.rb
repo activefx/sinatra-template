@@ -13,5 +13,9 @@ module App
       response.to_json
     end
 
+    get '/error' do
+      raise StandardError, 'Something went wrong'
+    end
+
   end
 end

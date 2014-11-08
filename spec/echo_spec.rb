@@ -6,7 +6,7 @@ describe App::Echo do
     @app ||= described_class
   end
 
-  context "GET '/'" do
+  context "GET '/echo'" do
 
     it "is successful" do
       get '/'
@@ -21,6 +21,15 @@ describe App::Echo do
     it "optionally calculates the response time" do
       get '/', requested_at: URI.encode(Time.now.to_s)
       expect(JSON.parse(last_response.body)['response_time']).not_to be_nil
+    end
+
+  end
+
+  context "GET '/echo/error'" do
+
+    it "is unsuccessful" do
+      get '/error'
+      expect(last_response.status).to eq 500
     end
 
   end
