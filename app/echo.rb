@@ -1,5 +1,5 @@
 module App
-  class Echo < Sinatra::Base
+  class Echo < App::Base
 
     get '/' do
       response = { status: 'ok' }

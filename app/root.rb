@@ -1,5 +1,5 @@
 module App
-  class Root < Sinatra::Base
+  class Root < App::Base
 
     get '/' do
       'Hi!'
