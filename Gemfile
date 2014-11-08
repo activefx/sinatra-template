@@ -4,7 +4,7 @@ source "http://rubygems.org/"
 ruby '2.1.3'
 
 gem "sinatra", require: "sinatra/base"
-gem "thin"
+gem "unicorn"
 gem "json"
 gem "activesupport", "~> 4", "< 5"
 
