@@ -17,6 +17,48 @@ heroku apps:create <new_application_name>
 git push heroku master
 ````
 
+# Configuring Rollbar 
+
+Add ROLLBAR_SERVER_SIDE_ACCESS_TOKEN env variable to the .env file and the Rollbar gem to the Gemfile
+````
+gem "rollbar"
+````
+
+Inside the lib directory, create request_data_extractor.rb
+````
+class RequestDataExtractor
+  include Rollbar::RequestDataExtractor
+  def from_rack(env)
+    extract_request_data_from_rack(env).merge({
+      :route => env["PATH_INFO"]
+    })
+  end
+end
+````
+
+Within app/base.rb, add the following:
+````
+configure do
+  Rollbar.configure do |config|
+    config.access_token = ENV['ROLLBAR_SERVER_SIDE_ACCESS_TOKEN']
+    config.environment = Sinatra::Base.environment
+    config.framework = "Sinatra: #{Sinatra::VERSION}"
+    config.root = settings.root
+  end
+end
+````
+
+Add an error block to app/base.rb or only the route files that will use Rollbar for error handling
+````
+error do
+  # To send the exception traceback:
+  request_data = RequestDataExtractor.new.from_rack(env)
+  Rollbar.report_exception(env['sinatra.error'], request_data)
+
+  "We're sorry, but something went wrong."
+end
+````
+
 # License 
 
 Copyright (c) 2014 Matthew Solt
