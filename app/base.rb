@@ -1,7 +1,6 @@
 module App
   class Base < Sinatra::Base
 
-
     configure do
 
       # Set the environment from RACK_ENV
@@ -10,11 +9,8 @@ module App
       # Set the root as the overall application directory
       set :root, File.expand_path("..", File.dirname(__FILE__))
 
-      # Log to stdout and to a file
+      # Enable logging
       enable :logging
-      file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
-      file.sync = true
-      use Rack::CommonLogger, file
 
       # Disable cookie based sessions
       set :sessions, false
@@ -37,6 +33,15 @@ module App
 
       # Enable error pages in development
       set :show_exceptions, true
+
+    end
+
+    configure :development, :test do
+
+      # Log to stdout and to a file
+      file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+      file.sync = true
+      use Rack::CommonLogger, file
 
     end
 
