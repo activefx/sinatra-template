@@ -3,13 +3,14 @@ source "http://rubygems.org/"
 
 ruby '2.1.3'
 
-gem "rake"
 gem "sinatra"
 gem "thin"
 gem "json"
 
 group :development do
   gem "foreman"
+  gem "rake"
+  gem "sinatra-reloader"
 end
 
 group :test do
@@ -18,3 +19,4 @@ group :test do
 end
 
 gem "pry", group: [ :development, :test ]
+
