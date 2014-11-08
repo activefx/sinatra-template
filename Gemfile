@@ -3,7 +3,7 @@ source "http://rubygems.org/"
 
 ruby '2.1.3'
 
-gem "sinatra"
+gem "sinatra", require: "sinatra/base"
 gem "thin"
 gem "json"
 gem "activesupport", "~> 4", "< 5"
