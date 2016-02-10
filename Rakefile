@@ -17,7 +17,7 @@ end
 desc "Run IRB console with app environment"
 task :console do
   puts "Loading development console..."
-  system("pry -r ./config/boot.rb")
+  system("pry -r ./app.rb")
 end
 
 desc "Start the development environment"
