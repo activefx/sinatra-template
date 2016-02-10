@@ -18,6 +18,8 @@ GEM
     backports (3.6.8)
     builder (3.2.2)
     coderay (1.1.0)
+    concurrent-ruby (1.0.0)
+    connection_pool (2.2.0)
     diff-lcs (1.2.5)
     dotenv (2.1.0)
     fakeredis (0.5.0)
@@ -42,7 +44,6 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     i18n (0.7.0)
     json (1.8.3)
-    kgio (2.10.0)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
@@ -62,17 +63,19 @@ GEM
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
+    puma (2.16.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    raindrops (0.15.0)
     rake (10.5.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.2.2)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -87,6 +90,10 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     shellany (0.0.1)
+    sidekiq (4.1.0)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -110,10 +117,6 @@ GEM
     tilt (2.0.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    unicorn (5.0.1)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -127,15 +130,17 @@ DEPENDENCIES
   oj
   pry
   pry-remote
+  puma
   rack-test
   rake
+  redis-namespace
   rspec (~> 3.1)
+  sidekiq
   sinatra
   sinatra-activerecord
   sinatra-contrib
   sinatra-reloader
   sqlite3
-  unicorn
 
 BUNDLED WITH
    1.11.2

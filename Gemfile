@@ -7,10 +7,12 @@ gem "sqlite3"
 gem "sinatra", require: "sinatra/base"
 gem "sinatra-activerecord"
 gem "sinatra-contrib"
-gem "unicorn"
+gem "puma"
 gem "json"
 gem "oj"
 gem "dotenv"
+gem "redis-namespace"
+gem "sidekiq"
 
 group :development do
   gem "foreman"
@@ -27,4 +29,3 @@ end
 
 gem "pry", group: [ :development, :test ]
 gem "pry-remote", group: [ :development, :test ]
-

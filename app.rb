@@ -1,4 +1,5 @@
 ENV["RACK_ENV"] ||= "development"
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"]
 
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
@@ -6,6 +7,7 @@ Bundler.require(:default, ENV["RACK_ENV"].to_sym)
 
 Dotenv.load
 
+require 'yaml'
 require 'time'
 require 'uri'
 require 'active_support/all'
