@@ -17,14 +17,13 @@ module App
       self.class.error_reporting_enabled?
     end
 
-
     configure do
 
       # Set the environment from RACK_ENV
       set :environment, (ENV['RACK_ENV'] || :development)
 
       # Set the root as the overall application directory
-      set :root, File.expand_path("..", File.dirname(__FILE__))
+      set :root, File.expand_path("../..", File.dirname(__FILE__))
 
       # Enable logging
       enable :logging
@@ -47,6 +46,8 @@ module App
     end
 
     configure :development do
+
+      register Sinatra::Reloader
 
       # Enable error pages in development
       set :show_exceptions, true

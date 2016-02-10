@@ -3,11 +3,14 @@ source "http://rubygems.org/"
 
 ruby '2.3.0'
 
+gem "sqlite3"
 gem "sinatra", require: "sinatra/base"
+gem "sinatra-activerecord"
+gem "sinatra-contrib"
 gem "unicorn"
 gem "json"
-gem "activesupport", "~> 4", "< 5"
 gem "oj"
+gem "dotenv"
 
 group :development do
   gem "foreman"
@@ -22,7 +25,6 @@ group :test do
   gem "fakeredis"
 end
 
-gem "dotenv", group: [ :development, :test ]
 gem "pry", group: [ :development, :test ]
 gem "pry-remote", group: [ :development, :test ]
 
