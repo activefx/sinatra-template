@@ -26,10 +26,3 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
     require file
   end
 end
-
-
-
-# Dir["./lib/**/*.rb"].each { |f| require f }
-# # Ensure App::Base is always required first
-# require "./app/base.rb"
-# Dir["./app/**/*.rb"].each { |f| require f unless f == "./app/api/base.rb" }
