@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe App::Root do
+RSpec.describe App::Root do
 
   def app
     @app ||= described_class

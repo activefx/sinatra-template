@@ -25,6 +25,8 @@ group :test do
   gem "guard-rspec"
   gem "rack-test"
   gem "fakeredis"
+  gem "database_cleaner"
+  gem "factory_girl"
 end
 
 gem "pry", group: [ :development, :test ]

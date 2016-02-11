@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe App::Echo do
+RSpec.describe App::Echo do
 
   def app
     @app ||= described_class
